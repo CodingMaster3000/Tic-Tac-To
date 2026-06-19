@@ -4,7 +4,9 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            const int GRID_SIZE = 3;
+            int[,] grid = new int[GRID_SIZE, GRID_SIZE];
+            UIMethods.OutputGrid(grid);
         }
     }
 }

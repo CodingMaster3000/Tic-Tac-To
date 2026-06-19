@@ -4,7 +4,11 @@ using System.Text;
 
 namespace Tic_Tac_To
 {
-    internal class UIMethods
+    public static class UIMethods
     {
+        public static void OutputGrid(int[,] grid)
+        {
+            Console.Write("0");
+        }
     }
 }
