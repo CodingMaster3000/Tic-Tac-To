@@ -9,11 +9,11 @@
             string[,] grid = new string[GRID_SIZE, GRID_SIZE];
             while (true)
             {
-                UIMethods.WriteLine("Place your symbol.");
+                UIMethods.Write("Place your symbol.");
                 userInput = UIMethods.ReadLine();
-                UIMethods.WriteLine(userInput);
+                UIMethods.Write(userInput);
 
-                UIMethods.OutputGrid(grid);
+                Logic.CheckGrid(grid);
             }
 
         }
