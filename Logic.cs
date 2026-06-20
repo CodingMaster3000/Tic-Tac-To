@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
 namespace Tic_Tac_To
 {
     public static class Logic
@@ -14,7 +13,6 @@ namespace Tic_Tac_To
                 for (int k = 0; k < 3; k++)
                 {
                     UIMethods.Write("-");
-
                 }
             }
             UIMethods.Write("+");
@@ -22,7 +20,6 @@ namespace Tic_Tac_To
             for (int i = 0; i < gridSize; i++)
             {
                 UIMethods.Write("|");
-
                 for (int j = 0; j < gridSize; j++)
                 {
                     if (grid[i, j] == null)
@@ -42,16 +39,14 @@ namespace Tic_Tac_To
                     for (int k = 0; k < 3; k++)
                     {
                         UIMethods.Write("-");
-
                     }
                 }
                 UIMethods.Write("+");
                 UIMethods.Write("\n");
             }
         }
-        public static string[,] AIMove(string[,] grid, Random rng )
+        public static string[,] AIMove(string[,] grid, Random rng)
         {
-            
             while (true)
             {
                 int randomCollum = rng.Next(0, 2);
@@ -61,8 +56,6 @@ namespace Tic_Tac_To
                     grid[randomCollum, randomRow] = " O ";
                     break;
                 }
-
-
             }
             return grid;
         }

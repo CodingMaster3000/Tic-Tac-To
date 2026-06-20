@@ -2,7 +2,6 @@
 {
     internal class Program
     {
-
         static void Main(string[] args)
         {
             Random rng = new Random();
@@ -17,12 +16,11 @@
                 userInputCollum = Convert.ToInt32(UIMethods.ReadLine());
                 UIMethods.Write("To place your symbol first choose a collum. (1/2/3)\n");
                 userInputRow = Convert.ToInt32(UIMethods.ReadLine());
-                grid[userInputCollum-ADJUSTING_INDEX, userInputRow-ADJUSTING_INDEX] = " X ";
+                grid[userInputCollum - ADJUSTING_INDEX, userInputRow - ADJUSTING_INDEX] = " X ";
                 UIMethods.Write("\n");
-                grid= Logic.AIMove(grid, rng);
-                Logic.CheckGrid(grid,GRID_SIZE);
+                grid = Logic.AIMove(grid, rng);
+                Logic.CheckGrid(grid, GRID_SIZE);
             }
-
         }
     }
 }
