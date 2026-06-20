@@ -49,5 +49,22 @@ namespace Tic_Tac_To
                 UIMethods.Write("\n");
             }
         }
+        public static string[,] AIMove(string[,] grid, Random rng )
+        {
+            
+            while (true)
+            {
+                int randomCollum = rng.Next(0, 2);
+                int randomRow = rng.Next(0, 2);
+                if (grid[randomCollum, randomRow] != "   ")
+                {
+                    grid[randomCollum, randomRow] = " O ";
+                    break;
+                }
+
+
+            }
+            return grid;
+        }
     }
 }
