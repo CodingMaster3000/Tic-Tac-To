@@ -12,8 +12,9 @@
                 UIMethods.Write("Place your symbol.");
                 userInput = UIMethods.ReadLine();
                 UIMethods.Write(userInput);
+                UIMethods.Write("\n");
 
-                Logic.CheckGrid(grid);
+                Logic.CheckGrid(grid,GRID_SIZE);
             }
 
         }
