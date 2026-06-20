@@ -4,7 +4,8 @@ using System.Text;
 
 namespace Tic_Tac_To
 {
-    internal class Data
+    public static class Data
     {
+
     }
 }

@@ -6,9 +6,20 @@ namespace Tic_Tac_To
 {
     public static class UIMethods
     {
+
         public static void OutputGrid(int[,] grid)
         {
             Console.Write("0");
+        }
+
+        public static string ReadLine ()
+        {
+            string userInput = Console.ReadLine();
+            return userInput;
+        }
+        public static void WriteLine(string text)
+        {
+            Console.WriteLine($"{text}");
         }
     }
 }
