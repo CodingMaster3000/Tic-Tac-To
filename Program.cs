@@ -6,7 +6,7 @@
         {
             const int GRID_SIZE = 3;
             string userInput;
-            int[,] grid = new int[GRID_SIZE, GRID_SIZE];
+            string[,] grid = new string[GRID_SIZE, GRID_SIZE];
             while (true)
             {
                 UIMethods.WriteLine("Place your symbol.");
