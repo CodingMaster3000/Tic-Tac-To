@@ -7,11 +7,15 @@
             const int GRID_SIZE = 3;
             string userInput;
             int[,] grid = new int[GRID_SIZE, GRID_SIZE];
-            UIMethods.WriteLine("Place your symbol.");
-            userInput = UIMethods.ReadLine();
-            UIMethods.WriteLine(userInput);
+            while (true)
+            {
+                UIMethods.WriteLine("Place your symbol.");
+                userInput = UIMethods.ReadLine();
+                UIMethods.WriteLine(userInput);
 
-            UIMethods.OutputGrid(grid);
+                UIMethods.OutputGrid(grid);
+            }
+
         }
     }
 }
