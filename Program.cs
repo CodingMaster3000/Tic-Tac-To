@@ -18,7 +18,7 @@
                 userInputRow = Convert.ToInt32(UIMethods.GetCoordinateInput());
                 grid[userInputCollum - ADJUSTING_INDEX, userInputRow - ADJUSTING_INDEX] = " X ";
                 UIMethods.Write("\n");
-                grid = Logic.AIMove(grid, rng);
+                grid = Logic.MakeAIMove(grid, rng);
                 Logic.CheckGrid(grid, GRID_SIZE);
             }
         }

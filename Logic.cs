@@ -45,7 +45,7 @@ namespace Tic_Tac_To
                 UIMethods.Write("\n");
             }
         }
-        public static string[,] AIMove(string[,] grid, Random rng)
+        public static string[,] MakeAIMove(string[,] grid, Random rng)
         {
             while (true)
             {
