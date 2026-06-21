@@ -5,7 +5,7 @@ namespace Tic_Tac_To
 {
     public static class UIMethods
     {
-        public static string ReadLine()
+        public static string GetCoordinateInput()
         {
             string userInput = Console.ReadLine();
             return userInput;
