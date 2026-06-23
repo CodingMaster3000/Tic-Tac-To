@@ -26,7 +26,11 @@
                         {
                             UIMethods.Write($"{grid[(j - 2) / 4, (i - 1) / 2]}");
                         }
-                        UIMethods.Write($"{gridBorder[j, i]}");
+                        else
+                        {
+                            UIMethods.Write($"{gridBorder[j, i]}");
+
+                        }
 
                     }
                     UIMethods.Write("\n");
