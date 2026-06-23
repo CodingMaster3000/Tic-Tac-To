@@ -10,6 +10,17 @@
             int userInputCollum;
             int userInputRow;
             string[,] grid = new string[GRID_SIZE, GRID_SIZE];
+            string[,] gridBorder = new string[GRID_SIZE * 4 + 1, GRID_SIZE * 2 + 1];
+            gridBorder = Logic.ConstructGridBorder(gridBorder, GRID_SIZE);
+            for (int i = 0; i < GRID_SIZE*2+1; i++)
+            {
+                for (int j = 0; j < GRID_SIZE*4+1;j ++)
+                {
+                    UIMethods.Write($"{gridBorder[j,i]}");
+                    
+                }
+                UIMethods.Write("\n");
+            }
             while (true)
             {
                 UIMethods.Write("To place your symbol first choose a row. (1/2/3)\n");
@@ -20,6 +31,7 @@
                 UIMethods.Write("\n");
                 grid = Logic.MakeAIMove(grid, rng);
                 Logic.CheckGrid(grid, GRID_SIZE);
+
             }
         }
     }
