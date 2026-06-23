@@ -72,7 +72,7 @@ namespace Tic_Tac_To
             {
                 int randomCollum = rng.Next(0, 2);
                 int randomRow = rng.Next(0, 2);
-                if (grid[randomCollum, randomRow] != " ")
+                if (grid[randomCollum, randomRow] == " ")
                 {
                     grid[randomCollum, randomRow] = "O";
                     break;
