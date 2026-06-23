@@ -9,12 +9,10 @@
             const int ADJUSTING_INDEX = 1;
             int userInputCollum;
             int userInputRow;
-            
             bool borderOrGrid;
             string[,] grid = new string[GRID_SIZE, GRID_SIZE];
             string[,] gridBorder = new string[GRID_SIZE * 4 + 1, GRID_SIZE * 2 + 1];
             gridBorder = Logic.ConstructGridBorder(gridBorder, GRID_SIZE);
-
             while (true)
             {
                 for (int i = 0; i < GRID_SIZE * 2 + 1; i++)
@@ -29,9 +27,7 @@
                         else
                         {
                             UIMethods.Write($"{gridBorder[j, i]}");
-
                         }
-
                     }
                     UIMethods.Write("\n");
                 }
@@ -42,7 +38,6 @@
                 grid[userInputCollum - ADJUSTING_INDEX, userInputRow - ADJUSTING_INDEX] = "X";
                 UIMethods.Write("\n");
                 grid = Logic.MakeAIMove(grid, rng);
-
             }
         }
     }
