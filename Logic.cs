@@ -16,7 +16,6 @@ namespace Tic_Tac_To
                 else
                 {
                     gridBorder[j, 0] = "-";
-
                 }
             }
             for (int i = 1; i < gridSize*2+1; i++)
@@ -49,49 +48,12 @@ namespace Tic_Tac_To
                         }
                     }
                 }
-
             }
             return gridBorder;
         }
-        public static void CheckGrid(string[,] grid, int gridSize)
+        public static bool CheckCoordinates(int a, int b)
         {
-            for (int j = 0; j < gridSize; j++)
-            {
-                UIMethods.Write("+");
-                for (int k = 0; k < 3; k++)
-                {
-                    UIMethods.Write("-");
-                }
-            }
-            UIMethods.Write("+");
-            UIMethods.Write("\n");
-            for (int i = 0; i < gridSize; i++)
-            {
-                UIMethods.Write("|");
-                for (int j = 0; j < gridSize; j++)
-                {
-                    if (grid[i, j] == null)
-                    {
-                        UIMethods.Write("   ");
-                    }
-                    else
-                    {
-                        UIMethods.Write($"{grid[i, j]}");
-                    }
-                    UIMethods.Write("|");
-                }
-                UIMethods.Write("\n");
-                for (int j = 0; j < gridSize; j++)
-                {
-                    UIMethods.Write("+");
-                    for (int k = 0; k < 3; k++)
-                    {
-                        UIMethods.Write("-");
-                    }
-                }
-                UIMethods.Write("+");
-                UIMethods.Write("\n");
-            }
+                return (a + 2) % 4 == 0 && (b + 1) % 2 == 0;
         }
         public static string[,] MakeAIMove(string[,] grid, Random rng)
         {
@@ -99,13 +61,26 @@ namespace Tic_Tac_To
             {
                 int randomCollum = rng.Next(0, 2);
                 int randomRow = rng.Next(0, 2);
-                if (grid[randomCollum, randomRow] != "   ")
+                if (grid[randomCollum, randomRow] != " ")
                 {
-                    grid[randomCollum, randomRow] = " O ";
+                    grid[randomCollum, randomRow] = "O";
                     break;
                 }
             }
             return grid;
         }
+
+        //UIMethods.Write("|");
+        //        for (int j = 0; j<gridSize; j++)
+        //        {
+        //            if (grid[i, j] == null)
+        //            {
+        //                UIMethods.Write("   ");
+        //            }
+        //            else
+        //            {
+                     
+        //            }
+        //        }
     }
 }
