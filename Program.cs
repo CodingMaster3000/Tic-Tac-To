@@ -34,9 +34,9 @@
                     UIMethods.Write("\n");
                 }
                 UIMethods.Write("To place your symbol first choose a row. (1/2/3)\n");
-                userInputCollum = Convert.ToInt32(UIMethods.GetCoordinateInput());
+                userInputCollum = UIMethods.GetCoordinateInput();
                 UIMethods.Write("To place your symbol first choose a collum. (1/2/3)\n");
-                userInputRow = Convert.ToInt32(UIMethods.GetCoordinateInput());
+                userInputRow = UIMethods.GetCoordinateInput();
                 grid[userInputCollum - ADJUSTING_INDEX, userInputRow - ADJUSTING_INDEX] = "X";
                 UIMethods.Write("\n");
                 grid = Logic.MakeAIMove(grid, rng);
