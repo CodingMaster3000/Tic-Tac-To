@@ -12,6 +12,7 @@
             bool borderOrGrid;
             string[,] grid = new string[GRID_SIZE, GRID_SIZE];
             string[,] gridBorder = new string[GRID_SIZE * 4 + 1, GRID_SIZE * 2 + 1];
+            grid = Logic.InitializeGrid(grid, GRID_SIZE);
             gridBorder = Logic.ConstructGridBorder(gridBorder, GRID_SIZE);
             while (true)
             {
@@ -28,6 +29,7 @@
                         {
                             UIMethods.Write($"{gridBorder[j, i]}");
                         }
+                        //UIMethods.Write($"{gridBorder[j, i]}");
                     }
                     UIMethods.Write("\n");
                 }

@@ -51,6 +51,17 @@ namespace Tic_Tac_To
             }
             return gridBorder;
         }
+        public static string[,] InitializeGrid(string[,] grid, int gridSize)
+        {
+            for (int i = 0; i < gridSize; i++)
+            {
+                for (int j = 0; j < gridSize; j++)
+                {
+                    grid[j, i] = " ";
+                }
+            }
+            return grid;
+        }
         public static bool CheckCoordinates(int a, int b)
         {
             return (a + 2) % 4 == 0 && (b + 1) % 2 == 0;
