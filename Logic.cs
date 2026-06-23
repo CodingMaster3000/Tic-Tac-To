@@ -18,9 +18,9 @@ namespace Tic_Tac_To
                     gridBorder[j, 0] = "-";
                 }
             }
-            for (int i = 1; i < gridSize*2+1; i++)
+            for (int i = 1; i < gridSize * 2 + 1; i++)
             {
-                if(i==1 || i % 2 != 0)
+                if (i == 1 || i % 2 != 0)
                 {
                     for (int j = 0; j < gridSize * 4 + 1; j++)
                     {
@@ -53,7 +53,7 @@ namespace Tic_Tac_To
         }
         public static bool CheckCoordinates(int a, int b)
         {
-                return (a + 2) % 4 == 0 && (b + 1) % 2 == 0;
+            return (a + 2) % 4 == 0 && (b + 1) % 2 == 0;
         }
         public static string[,] MakeAIMove(string[,] grid, Random rng)
         {
@@ -69,18 +69,5 @@ namespace Tic_Tac_To
             }
             return grid;
         }
-
-        //UIMethods.Write("|");
-        //        for (int j = 0; j<gridSize; j++)
-        //        {
-        //            if (grid[i, j] == null)
-        //            {
-        //                UIMethods.Write("   ");
-        //            }
-        //            else
-        //            {
-                     
-        //            }
-        //        }
     }
 }
