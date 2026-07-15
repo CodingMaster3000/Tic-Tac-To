@@ -80,5 +80,16 @@ namespace Tic_Tac_To
             }
             return grid;
         }
+        public static bool CheckCellContent(string[,] grid, int a, int b)
+        {
+            if (grid[a,b] == " ")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

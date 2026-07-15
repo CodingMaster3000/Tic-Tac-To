@@ -7,8 +7,7 @@
             Random rng = new Random();
             const int GRID_SIZE = 3;
             const int ADJUSTING_INDEX = 1;
-            int userInputCollum;
-            int userInputRow;
+
             bool borderOrGrid;
             string[,] grid = new string[GRID_SIZE, GRID_SIZE];
             string[,] gridBorder = new string[GRID_SIZE * 4 + 1, GRID_SIZE * 2 + 1];
@@ -33,11 +32,19 @@
                     }
                     UIMethods.Write("\n");
                 }
-                UIMethods.Write("To place your symbol first choose a row. (1/2/3)\n");
-                userInputCollum = UIMethods.GetCoordinateInput();
-                UIMethods.Write("To place your symbol first choose a collum. (1/2/3)\n");
-                userInputRow = UIMethods.GetCoordinateInput();
-                grid[userInputCollum - ADJUSTING_INDEX, userInputRow - ADJUSTING_INDEX] = "X";
+                int userInputCollum = 0;
+                int userInputRow = 0;
+                bool emptyCell = false;
+                while (emptyCell == false)
+                {
+                    UIMethods.Write("To place your symbol first choose a row. (1/2/3)\n");
+                    userInputCollum = UIMethods.GetCoordinateInput();
+                    UIMethods.Write("To place your symbol first choose a collum. (1/2/3)\n");
+                    userInputRow = UIMethods.GetCoordinateInput();
+                    emptyCell = Logic.CheckCellContent(grid, userInputRow, userInputCollum);
+                }
+
+                grid[userInputRow - ADJUSTING_INDEX, userInputCollum - ADJUSTING_INDEX] = "X";
                 UIMethods.Write("\n");
                 grid = Logic.MakeAIMove(grid, rng);
             }
