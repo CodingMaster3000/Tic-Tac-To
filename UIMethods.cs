@@ -11,7 +11,7 @@ namespace Tic_Tac_To
             bool correctInput = false;
             bool falseInput = false;
             
-            while (correctInput == false || x >= 0 || x > 3)
+            while (correctInput == false || x <= 0 || x > 3)
             {
                 
                 string userInput = Console.ReadLine();
