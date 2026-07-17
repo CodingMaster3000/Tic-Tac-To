@@ -41,10 +41,12 @@
                     userInputCollum = UIMethods.GetCoordinateInput();
                     UIMethods.Write("To place your symbol first choose a collum. (1/2/3)\n");
                     userInputRow = UIMethods.GetCoordinateInput();
-                    emptyCell = Logic.CheckCellContent(grid, userInputRow - ADJUSTING_INDEX, userInputCollum - ADJUSTING_INDEX);
+                    userInputRow--;
+                    userInputCollum--;
+                    emptyCell = Logic.CheckCellContent(grid, userInputRow, userInputCollum);
                 }
 
-                grid[userInputRow - ADJUSTING_INDEX, userInputCollum - ADJUSTING_INDEX] = "X";
+                grid[userInputRow, userInputCollum] = "X";
                 UIMethods.Write("\n");
                 grid = Logic.MakeAIMove(grid, rng);
             }
