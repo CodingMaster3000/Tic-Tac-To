@@ -91,5 +91,21 @@ namespace Tic_Tac_To
                 return false;
             }
         }
+        public static string CheckForWinningLines(string[,] grid, int a, int b, int c)
+        {
+            if (a == 0 && b == 0 || a == c && b == 0 || a == 0 || b == c || a == c && b == c)
+            {
+
+                if (a == b)
+                {
+
+                }
+                else
+                {
+
+                }
+            }
+            return "";
+        }
     }
 }
