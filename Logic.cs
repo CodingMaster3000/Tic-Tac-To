@@ -82,7 +82,7 @@ namespace Tic_Tac_To
         }
         public static bool CheckCellContent(string[,] grid, int a, int b)
         {
-            if (grid[a,b] == " ")
+            if (grid[a, b] == " ")
             {
                 return true;
             }
@@ -93,16 +93,19 @@ namespace Tic_Tac_To
         }
         public static string CheckForWinningLines(string[,] grid, int a, int b, int c)
         {
-            if (a == 0 && b == 0 || a == c && b == 0 || a == 0 || b == c || a == c && b == c)
+            for (int i = -1; i < 1; i++)
             {
-
-                if (a == b)
+                if (grid[a, b] == grid[a - 1, b + i])
                 {
-
                 }
-                else
+                if (grid[a, b] == grid[a + 1, b + i])
                 {
-
+                }
+            }
+            for (int i = -1; i < 1; i += 2)
+            {
+                if (grid[a, b] == grid[a, b + i])
+                {
                 }
             }
             return "";
