@@ -93,22 +93,94 @@ namespace Tic_Tac_To
         }
         public static string CheckForWinningLines(string[,] grid, int a, int b, int c)
         {
+            bool winningLineFound = false;
             for (int i = -1; i < 1; i++)
             {
-                if (grid[a, b] == grid[a - 1, b + i])
+                try
                 {
+                    if (grid[a, b] == grid[a - 1, b + i])
+                    {
+                        winningLineFound = FollowTheLine(grid, a, b, a, b, i);
+                        if (winningLineFound)
+                        {
+                            return "Winning Line!";
+                        }
+                    }
                 }
-                if (grid[a, b] == grid[a + 1, b + i])
+                catch (IndexOutOfRangeException)
                 {
+                    continue;
+                }
+                try
+                {
+                    if (grid[a, b] == grid[a + 1, b + i])
+                    {
+                        winningLineFound = FollowTheLine(grid, a, b, a, b, i);
+                        if (winningLineFound)
+                        {
+                            return "Winning Line!";
+                        }
+                    }
+                }
+                catch (IndexOutOfRangeException)
+                {
+                    continue;
                 }
             }
             for (int i = -1; i < 1; i += 2)
             {
-                if (grid[a, b] == grid[a, b + i])
+                try
                 {
+                    if (grid[a, b] == grid[a, b + i])
+                    {
+                        winningLineFound = FollowTheLine(grid, a, b, a, b, i);
+                        if (winningLineFound)
+                        {
+                            return "Winning Line!";
+                        }
+                    }
+                }
+                catch (IndexOutOfRangeException)
+                {
+                    continue;
                 }
             }
-            return "";
+            if (winningLineFound)
+            {
+                return "Winning Line!";
+            }
+            else
+            {
+                return "No Winning Line!";
+            }
+        }
+        public static bool FollowTheLine(string[,] grid, int a, int b, int d, int e, int f)
+        {
+            d--;
+            e += f;
+            while (0 <= d && d <= 2 && 0 <= e && e <= 2)
+            {
+
+                if (grid[a, b] != grid[d, e])
+                {
+                    return false;
+                }
+                d--;
+                e += f;
+            }
+            d = a;
+            e = b;
+            while (0 <= d && d <= 2 && 0 <= e && e <= 2)
+            {
+
+                if (grid[a, b] != grid[d, e])
+                {
+                    return false;
+                }
+                d--;
+                e += f;
+            }
+            return true;
         }
     }
 }

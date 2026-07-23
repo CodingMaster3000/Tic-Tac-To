@@ -48,6 +48,7 @@
 
                 grid[userInputRow, userInputCollum] = "X";
                 string gameState = Logic.CheckForWinningLines(grid, userInputRow, userInputCollum, GRID_SIZE);
+                UIMethods.Write($"{gameState}");
                 UIMethods.Write("\n");
                 grid = Logic.MakeAIMove(grid, rng);
             }
