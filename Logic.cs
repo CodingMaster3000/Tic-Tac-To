@@ -168,8 +168,8 @@ namespace Tic_Tac_To
                 d--;
                 e += f;
             }
-            d = a;
-            e = b;
+            d = a + 1;
+            e = b -f;
             while (0 <= d && d <= 2 && 0 <= e && e <= 2)
             {
 
@@ -177,8 +177,8 @@ namespace Tic_Tac_To
                 {
                     return false;
                 }
-                d--;
-                e += f;
+                d++;
+                e -= f;
             }
             return true;
         }
