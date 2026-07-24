@@ -66,20 +66,6 @@ namespace Tic_Tac_To
         {
             return (a + 2) % 4 == 0 && (b + 1) % 2 == 0;
         }
-        public static string[,] MakeAIMove(string[,] grid, Random rng)
-        {
-            while (true)
-            {
-                int randomCollum = rng.Next(0, 2);
-                int randomRow = rng.Next(0, 2);
-                if (grid[randomCollum, randomRow] == " ")
-                {
-                    grid[randomCollum, randomRow] = "O";
-                    break;
-                }
-            }
-            return grid;
-        }
         public static bool CheckCellContent(string[,] grid, int a, int b)
         {
             if (grid[a, b] == " ")
@@ -160,7 +146,6 @@ namespace Tic_Tac_To
             e += f;
             while (0 <= d && d <= 2 && 0 <= e && e <= 2)
             {
-
                 if (grid[a, b] != grid[d, e])
                 {
                     return false;
@@ -169,10 +154,9 @@ namespace Tic_Tac_To
                 e += f;
             }
             d = a + 1;
-            e = b -f;
+            e = b - f;
             while (0 <= d && d <= 2 && 0 <= e && e <= 2)
             {
-
                 if (grid[a, b] != grid[d, e])
                 {
                     return false;
@@ -181,6 +165,11 @@ namespace Tic_Tac_To
                 e -= f;
             }
             return true;
+        }
+        public static int GenerateRAndomNumber(Random rng)
+        {
+            int a = rng.Next(0, 2);
+            return a;
         }
     }
 }
