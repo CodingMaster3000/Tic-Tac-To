@@ -9,18 +9,12 @@ namespace Tic_Tac_To
         {
             int x = 0;
             bool correctInput = false;
-            bool falseInput = false;
-            
             while (correctInput == false || x <= 0 || x > 3)
             {
-                
                 string userInput = Console.ReadLine();
                 correctInput = int.TryParse(userInput, out x);
-
             }
             return x;
-
-
         }
         public static void Write(string text)
         {
