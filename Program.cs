@@ -36,7 +36,7 @@
                 int userInputCollum = 0;
                 int userInputRow = 0;
                 bool emptyCell = false;
-                while (emptyCell == false)
+                while (!emptyCell)
                 {
                     UIMethods.Write("To place your symbol first choose a row. (1/2/3)\n");
                     userInputCollum = UIMethods.GetCoordinateInput();
@@ -53,7 +53,7 @@
                 emptyCell = false;
                 int randomCollum = 0;
                 int randomRow = 0;
-                while (emptyCell == false)
+                while (!emptyCell)
                 {
                     randomCollum = Logic.GenerateRAndomNumber(rng);
                     randomRow = Logic.GenerateRAndomNumber(rng);
@@ -61,8 +61,6 @@
                 }
                 grid[randomRow, randomCollum] = PLAYER_0_SYMBOL;
                 gameState = Logic.CheckForWinningLines(grid, randomRow, randomCollum, GRID_SIZE);
-
-
             }
         }
     }
