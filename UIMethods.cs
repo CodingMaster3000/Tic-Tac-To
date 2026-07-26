@@ -5,7 +5,7 @@ namespace Tic_Tac_To
 {
     public static class UIMethods
     {
-        public static int GetCoordinateInput()
+        public static int GetCoordinateInput(int a)
         {
             int x = 0;
             bool correctInput = false;
@@ -13,7 +13,7 @@ namespace Tic_Tac_To
             {
                 string userInput = Console.ReadLine();
                 correctInput = int.TryParse(userInput, out x);
-                Write("Invalid input. Make sure that the input is an integer bewteen 1 and 3.");
+                Write($"Invalid input. Make sure that the input is an integer bewteen 1 and {a}.");
             }
             return x;
         }

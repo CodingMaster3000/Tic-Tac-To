@@ -38,10 +38,10 @@
                 bool emptyCell = false;
                 while (!emptyCell)
                 {
-                    UIMethods.Write("To place your symbol first choose a row. (1/2/3)\n");
-                    userInputCollum = UIMethods.GetCoordinateInput();
-                    UIMethods.Write("To place your symbol first choose a collum. (1/2/3)\n");
-                    userInputRow = UIMethods.GetCoordinateInput();
+                    UIMethods.Write($"To place your symbol first choose a row. (1/.../{GRID_SIZE})\n");
+                    userInputCollum = UIMethods.GetCoordinateInput(GRID_SIZE);
+                    UIMethods.Write($"To place your symbol first choose a collum. (1/.../{GRID_SIZE})\n");
+                    userInputRow = UIMethods.GetCoordinateInput(GRID_SIZE);
                     userInputRow--;
                     userInputCollum--;
                     emptyCell = Logic.CheckCellContent(grid, userInputRow, userInputCollum);
