@@ -7,6 +7,8 @@
             Random rng = new Random();
             const int GRID_SIZE = 3;
             const int ADJUSTING_INDEX = 1;
+            const string PLAYER_X_SYMBOL = "X";
+            const string PLAYER_0_SYMBOL = "0";
             bool borderOrGrid;
             string[,] grid = new string[GRID_SIZE, GRID_SIZE];
             string[,] gridBorder = new string[GRID_SIZE * 4 + 1, GRID_SIZE * 2 + 1];
@@ -44,7 +46,7 @@
                     userInputCollum--;
                     emptyCell = Logic.CheckCellContent(grid, userInputRow, userInputCollum);
                 }
-                grid[userInputRow, userInputCollum] = "X";
+                grid[userInputRow, userInputCollum] = PLAYER_X_SYMBOL;
                 string gameState = Logic.CheckForWinningLines(grid, userInputRow, userInputCollum, GRID_SIZE);
                 UIMethods.Write($"{gameState}");
                 UIMethods.Write("\n");
@@ -57,7 +59,10 @@
                     randomRow = Logic.GenerateRAndomNumber(rng);
                     emptyCell = Logic.CheckCellContent(grid, randomRow, randomCollum);
                 }
-                grid[randomRow, randomCollum] = "0";
+                grid[randomRow, randomCollum] = PLAYER_0_SYMBOL;
+                gameState = Logic.CheckForWinningLines(grid, randomRow, randomCollum, GRID_SIZE);
+
+
             }
         }
     }
