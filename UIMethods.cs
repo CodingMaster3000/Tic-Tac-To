@@ -13,6 +13,7 @@ namespace Tic_Tac_To
             {
                 string userInput = Console.ReadLine();
                 correctInput = int.TryParse(userInput, out x);
+                Write("Invalid input. Make sure that the input is an integer bewteen 1 and 3.");
             }
             return x;
         }
