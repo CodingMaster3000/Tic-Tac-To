@@ -168,7 +168,7 @@ namespace Tic_Tac_To
         }
         public static int GenerateRAndomNumber(Random rng, int a)
         {
-            int b = rng.Next(0, a + 1);
+            int b = rng.Next(0, a);
             return b;
         }
     }
