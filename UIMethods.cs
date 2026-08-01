@@ -9,11 +9,14 @@ namespace Tic_Tac_To
         {
             int x = 0;
             bool correctInput = false;
-            while (correctInput == false || x <= 0 || x > 3)
+            while (!correctInput || x <= 0 || x > 3)
             {
                 string userInput = Console.ReadLine();
                 correctInput = int.TryParse(userInput, out x);
-                Write($"Invalid input. Make sure that the input is an integer bewteen 1 and {a}.");
+                if (!correctInput)
+                {
+                    Write($"Invalid input. Make sure that the input is an integer bewteen 1 and {a}.");
+                }
             }
             return x;
         }
