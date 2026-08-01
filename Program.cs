@@ -9,12 +9,16 @@
             const int ADJUSTING_INDEX = 1;
             const string PLAYER_X_SYMBOL = "X";
             const string PLAYER_0_SYMBOL = "0";
+            string gameWon = "";
+            string gameTie = "";
             bool borderOrGrid;
+            int[,] rowsAndCollumsPlayer0 = new int[2, GRID_SIZE];
+            int[,] rowsAndCollumsPlayerX = new int[2, GRID_SIZE];
             string[,] grid = new string[GRID_SIZE, GRID_SIZE];
             string[,] gridBorder = new string[GRID_SIZE * 4 + 1, GRID_SIZE * 2 + 1];
             grid = Logic.InitializeGrid(grid, GRID_SIZE);
             gridBorder = Logic.ConstructGridBorder(gridBorder, GRID_SIZE);
-            while (true)
+            while (gameWon != "Winning Line!" && gameTie != "Tie!")
             {
                 for (int i = 0; i < GRID_SIZE * 2 + 1; i++)
                 {
@@ -47,8 +51,8 @@
                     emptyCell = Logic.CheckCellContent(grid, userInputRow, userInputCollum);
                 }
                 grid[userInputRow, userInputCollum] = PLAYER_X_SYMBOL;
-                string gameState = Logic.CheckForWinningLines(grid, userInputRow, userInputCollum, GRID_SIZE);
-                UIMethods.Write($"{gameState}");
+                gameWon = Logic.CheckForWinningLines(grid, userInputRow, userInputCollum, GRID_SIZE);
+                UIMethods.Write($"{gameWon}");
                 UIMethods.Write("\n");
                 emptyCell = false;
                 int randomCollum = 0;
@@ -60,7 +64,12 @@
                     emptyCell = Logic.CheckCellContent(grid, randomRow, randomCollum);
                 }
                 grid[randomRow, randomCollum] = PLAYER_0_SYMBOL;
-                gameState = Logic.CheckForWinningLines(grid, randomRow, randomCollum, GRID_SIZE);
+                gameWon = Logic.CheckForWinningLines(grid, randomRow, randomCollum, GRID_SIZE);
+                rowsAndCollumsPlayerX = Logic.AddMissingRowsAndLines(rowsAndCollumsPlayerX, userInputRow, userInputCollum);
+                rowsAndCollumsPlayer0 = Logic.AddMissingRowsAndLines(rowsAndCollumsPlayer0, randomRow, randomCollum);
+                gameTie = Logic.CheckForTie(rowsAndCollumsPlayerX, rowsAndCollumsPlayer0, GRID_SIZE);
+                UIMethods.Write($"{gameWon} | {gameTie}");
+                UIMethods.Write("\n");
             }
         }
     }

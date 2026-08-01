@@ -166,6 +166,34 @@ namespace Tic_Tac_To
             }
             return true;
         }
+        public static int[,] AddMissingRowsAndLines(int[,] rowsAndLines, int row, int collum)
+        {
+            rowsAndLines[0, row] = 1;
+            rowsAndLines[1,collum] = 1;
+
+            return rowsAndLines;
+        }
+        public static string CheckForTie(int[,] rowsAndLinesA, int[,] rowsAndLinesB, int a)
+        {
+            int b = 0;
+            foreach (int val in rowsAndLinesA)
+            {
+                b += val;
+            }
+            foreach (int val in rowsAndLinesB)
+            {
+                b += val;
+            }
+            if (b < a*4)
+            {
+                return "No tie!";
+            }
+            else
+            {
+                return "Tie!";
+            }
+
+        }
         public static int GenerateRAndomNumber(Random rng, int a)
         {
             int b = rng.Next(0, a);
