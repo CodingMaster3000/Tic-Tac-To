@@ -46,8 +46,6 @@
                     userInputCollum = UIMethods.GetCoordinateInput(GRID_SIZE);
                     UIMethods.Write($"To place your symbol first choose a collum. (1/.../{GRID_SIZE})\n");
                     userInputRow = UIMethods.GetCoordinateInput(GRID_SIZE);
-                    userInputRow--;
-                    userInputCollum--;
                     emptyCell = Logic.CheckCellContent(grid, userInputRow, userInputCollum);
                 }
                 grid[userInputRow, userInputCollum] = PLAYER_X_SYMBOL;
@@ -59,7 +57,7 @@
                 int randomRow = 0;
                 while (!emptyCell)
                 {
-                    randomCollum = Logic.GenerateRAndomNumber(rng,GRID_SIZE);
+                    randomCollum = Logic.GenerateRAndomNumber(rng, GRID_SIZE);
                     randomRow = Logic.GenerateRAndomNumber(rng, GRID_SIZE);
                     emptyCell = Logic.CheckCellContent(grid, randomRow, randomCollum);
                 }

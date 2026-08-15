@@ -5,6 +5,7 @@ namespace Tic_Tac_To
 {
     public static class UIMethods
     {
+        const int INPUT_TO_INDEX = 1;
         public static int GetCoordinateInput(int a)
         {
             int x = 0;
@@ -18,6 +19,7 @@ namespace Tic_Tac_To
                     Write($"Invalid input. Make sure that the input is an integer bewteen 1 and {a}.");
                 }
             }
+            x -= INPUT_TO_INDEX;
             return x;
         }
         public static void Write(string text)
