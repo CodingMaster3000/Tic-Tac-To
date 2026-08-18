@@ -82,7 +82,7 @@ namespace Tic_Tac_To
             bool winningLineFound = false;
             for (int i = -1; i < 1; i++)
             {
-                if (b + i > 0 && b + i < 3)
+                if (b + i > 0 && b + i < c)
                 {
                     if (grid[a, b] == grid[a - 1, b + i])
                     {
@@ -104,7 +104,7 @@ namespace Tic_Tac_To
             }
             for (int i = -1; i < 1; i += 2)
             {
-                if (b + i > 0 && b + i < 3)
+                if (b + i > 0 && b + i < c)
                 {
                     if (grid[a, b] == grid[a, b + i])
                     {
