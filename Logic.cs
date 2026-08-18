@@ -82,7 +82,7 @@ namespace Tic_Tac_To
             bool winningLineFound = false;
             for (int i = -1; i < 1; i++)
             {
-                try
+                if (b + i > 0 && b + i < 3)
                 {
                     if (grid[a, b] == grid[a - 1, b + i])
                     {
@@ -92,13 +92,6 @@ namespace Tic_Tac_To
                             return "Winning Line!";
                         }
                     }
-                }
-                catch (IndexOutOfRangeException)
-                {
-                    continue;
-                }
-                try
-                {
                     if (grid[a, b] == grid[a + 1, b + i])
                     {
                         winningLineFound = FollowTheLine(grid, a, b, a, b, i);
@@ -108,14 +101,10 @@ namespace Tic_Tac_To
                         }
                     }
                 }
-                catch (IndexOutOfRangeException)
-                {
-                    continue;
-                }
             }
             for (int i = -1; i < 1; i += 2)
             {
-                try
+                if (b + i > 0 && b + i < 3)
                 {
                     if (grid[a, b] == grid[a, b + i])
                     {
@@ -125,10 +114,6 @@ namespace Tic_Tac_To
                             return "Winning Line!";
                         }
                     }
-                }
-                catch (IndexOutOfRangeException)
-                {
-                    continue;
                 }
             }
             if (winningLineFound)
@@ -169,8 +154,7 @@ namespace Tic_Tac_To
         public static int[,] AddMissingRowsAndLines(int[,] rowsAndLines, int row, int collum)
         {
             rowsAndLines[0, row] = 1;
-            rowsAndLines[1,collum] = 1;
-
+            rowsAndLines[1, collum] = 1;
             return rowsAndLines;
         }
         public static string CheckForTie(int[,] rowsAndLinesA, int[,] rowsAndLinesB, int a)
@@ -184,7 +168,7 @@ namespace Tic_Tac_To
             {
                 b += val;
             }
-            if (b < a*4)
+            if (b < a * 4)
             {
                 return "No tie!";
             }
@@ -192,7 +176,6 @@ namespace Tic_Tac_To
             {
                 return "Tie!";
             }
-
         }
         public static int GenerateRAndomNumber(Random rng, int a)
         {
