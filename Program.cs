@@ -9,8 +9,8 @@
             const int ADJUSTING_INDEX = 1;
             const string PLAYER_X_SYMBOL = "X";
             const string PLAYER_0_SYMBOL = "0";
-            string gameWon = "";
-            string gameTie = "";
+            bool gameWon = false;
+            bool gameTie = false;
             bool borderOrGrid;
             int[,] rowsAndCollumsPlayer0 = new int[2, GRID_SIZE];
             int[,] rowsAndCollumsPlayerX = new int[2, GRID_SIZE];
@@ -18,7 +18,7 @@
             string[,] gridBorder = new string[GRID_SIZE * 4 + 1, GRID_SIZE * 2 + 1];
             grid = Logic.InitializeGrid(grid, GRID_SIZE);
             gridBorder = Logic.ConstructGridBorder(gridBorder, GRID_SIZE);
-            while (gameWon != "Winning Line!" && gameTie != "Tie!")
+            while (!gameWon && !gameTie)
             {
                 for (int i = 0; i < GRID_SIZE * 2 + 1; i++)
                 {
