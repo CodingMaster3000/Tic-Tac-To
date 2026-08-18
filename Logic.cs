@@ -77,7 +77,7 @@ namespace Tic_Tac_To
                 return false;
             }
         }
-        public static string CheckForWinningLines(string[,] grid, int a, int b, int c)
+        public static bool CheckForWinningLines(string[,] grid, int a, int b, int c)
         {
             bool winningLineFound = false;
             for (int i = -1; i < 1; i++)
@@ -89,7 +89,7 @@ namespace Tic_Tac_To
                         winningLineFound = FollowTheLine(grid, a, b, a, b, i);
                         if (winningLineFound)
                         {
-                            return "Winning Line!";
+                            return true;
                         }
                     }
                     if (grid[a, b] == grid[a + 1, b + i])
@@ -97,7 +97,7 @@ namespace Tic_Tac_To
                         winningLineFound = FollowTheLine(grid, a, b, a, b, i);
                         if (winningLineFound)
                         {
-                            return "Winning Line!";
+                            return true;
                         }
                     }
                 }
@@ -111,18 +111,18 @@ namespace Tic_Tac_To
                         winningLineFound = FollowTheLine(grid, a, b, a, b, i);
                         if (winningLineFound)
                         {
-                            return "Winning Line!";
+                            return true;
                         }
                     }
                 }
             }
             if (winningLineFound)
             {
-                return "Winning Line!";
+                return true;
             }
             else
             {
-                return "No Winning Line!";
+                return false;
             }
         }
         public static bool FollowTheLine(string[,] grid, int a, int b, int d, int e, int f)
@@ -157,7 +157,7 @@ namespace Tic_Tac_To
             rowsAndLines[1, collum] = 1;
             return rowsAndLines;
         }
-        public static string CheckForTie(int[,] rowsAndLinesA, int[,] rowsAndLinesB, int a)
+        public static bool CheckForTie(int[,] rowsAndLinesA, int[,] rowsAndLinesB, int a)
         {
             int b = 0;
             foreach (int val in rowsAndLinesA)
@@ -170,11 +170,11 @@ namespace Tic_Tac_To
             }
             if (b < a * 4)
             {
-                return "No tie!";
+                return false;
             }
             else
             {
-                return "Tie!";
+                return true;
             }
         }
         public static int GenerateRAndomNumber(Random rng, int a)
