@@ -5,6 +5,7 @@ namespace Tic_Tac_To
 {
     public static class Logic
     {
+        public static readonly Random random = new Random();
         public static string[,] ConstructGridBorder(string[,] gridBorder, int gridSize)
         {
             for (int j = 0; j < gridSize * 4 + 1; j++)
@@ -177,10 +178,11 @@ namespace Tic_Tac_To
                 return true;
             }
         }
-        public static int GenerateRAndomNumber(Random rng, int a)
+        public static int GenerateRAndomNumber(int a)
         {
-            int b = rng.Next(0, a);
+            int b = Logic.random.Next(0, a);
             return b;
         }
     }
+
 }

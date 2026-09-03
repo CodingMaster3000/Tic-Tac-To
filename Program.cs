@@ -57,8 +57,8 @@
                 int randomRow = 0;
                 while (!emptyCell)
                 {
-                    randomCollum = Logic.GenerateRAndomNumber(rng, GRID_SIZE);
-                    randomRow = Logic.GenerateRAndomNumber(rng, GRID_SIZE);
+                    randomCollum = Logic.GenerateRAndomNumber(GRID_SIZE);
+                    randomRow = Logic.GenerateRAndomNumber(GRID_SIZE);
                     emptyCell = Logic.CheckCellContent(grid, randomRow, randomCollum);
                 }
                 grid[randomRow, randomCollum] = PLAYER_0_SYMBOL;
