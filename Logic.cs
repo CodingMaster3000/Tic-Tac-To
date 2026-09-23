@@ -85,20 +85,26 @@ namespace Tic_Tac_To
             {
                 if (b + i > 0 && b + i < c)
                 {
-                    if (grid[a, b] == grid[a - 1, b + i])
+                    if (a - 1 >= 0)
                     {
-                        winningLineFound = FollowTheLine(grid, a, b, a, b, i);
-                        if (winningLineFound)
+                        if (grid[a, b] == grid[a - 1, b + i])
                         {
-                            return true;
+                            winningLineFound = FollowTheLine(grid, a, b, a, b, i);
+                            if (winningLineFound)
+                            {
+                                return true;
+                            }
                         }
                     }
-                    if (grid[a, b] == grid[a + 1, b + i])
+                    if (a + 1 < c)
                     {
-                        winningLineFound = FollowTheLine(grid, a, b, a, b, i);
-                        if (winningLineFound)
+                        if (grid[a, b] == grid[a + 1, b + i])
                         {
-                            return true;
+                            winningLineFound = FollowTheLine(grid, a, b, a, b, i);
+                            if (winningLineFound)
+                            {
+                                return true;
+                            }
                         }
                     }
                 }
@@ -184,5 +190,4 @@ namespace Tic_Tac_To
             return b;
         }
     }
-
 }
