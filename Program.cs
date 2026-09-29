@@ -50,8 +50,13 @@
                 }
                 grid[userInputRow, userInputCollum] = PLAYER_X_SYMBOL;
                 gameWon = Logic.CheckForWinningLines(grid, userInputRow, userInputCollum, GRID_SIZE);
-                UIMethods.Write($"{gameWon}");
-                UIMethods.Write("\n");
+                if (gameWon)
+                {
+                    UIMethods.Write("You have a winning line.");
+                    UIMethods.Write("\n");
+                    break;
+                }
+
                 emptyCell = false;
                 int randomCollum = 0;
                 int randomRow = 0;
