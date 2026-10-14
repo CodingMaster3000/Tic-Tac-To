@@ -47,6 +47,10 @@
                     UIMethods.Write($"To place your symbol first choose a collum. (1/.../{GRID_SIZE})\n");
                     userInputRow = UIMethods.GetCoordinateInput(GRID_SIZE);
                     emptyCell = Logic.CheckCellContent(grid, userInputRow, userInputCollum);
+                    if (!emptyCell)
+                    {
+                        UIMethods.Write($"In this cell was a symbol placed already. Choose a different cell.\n");
+                    }
                 }
                 grid[userInputRow, userInputCollum] = PLAYER_X_SYMBOL;
                 gameWon = Logic.CheckForWinningLines(grid, userInputRow, userInputCollum, GRID_SIZE);
@@ -56,7 +60,6 @@
                     UIMethods.Write("\n");
                     break;
                 }
-
                 emptyCell = false;
                 int randomCollum = 0;
                 int randomRow = 0;
@@ -71,8 +74,11 @@
                 rowsAndCollumsPlayerX = Logic.AddMissingRowsAndLines(rowsAndCollumsPlayerX, userInputRow, userInputCollum);
                 rowsAndCollumsPlayer0 = Logic.AddMissingRowsAndLines(rowsAndCollumsPlayer0, randomRow, randomCollum);
                 gameTie = Logic.CheckForTie(rowsAndCollumsPlayerX, rowsAndCollumsPlayer0, GRID_SIZE);
-                UIMethods.Write($"{gameWon} | {gameTie}");
-                UIMethods.Write("\n");
+                if (!gameTie)
+                {
+                    UIMethods.Write($"{gameWon} | {gameTie}");
+                    UIMethods.Write("\n");
+                }
             }
         }
     }
