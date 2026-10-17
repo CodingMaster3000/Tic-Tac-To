@@ -71,6 +71,11 @@
                 }
                 grid[randomRow, randomCollum] = PLAYER_0_SYMBOL;
                 gameWon = Logic.CheckForWinningLines(grid, randomRow, randomCollum, GRID_SIZE);
+                if (gameWon)
+                {
+                    UIMethods.Write("Your opponent has a winning line so you have lost unfortunately.");
+                    break;
+                }
                 rowsAndCollumsPlayerX = Logic.AddMissingRowsAndLines(rowsAndCollumsPlayerX, userInputRow, userInputCollum);
                 rowsAndCollumsPlayer0 = Logic.AddMissingRowsAndLines(rowsAndCollumsPlayer0, randomRow, randomCollum);
                 gameTie = Logic.CheckForTie(rowsAndCollumsPlayerX, rowsAndCollumsPlayer0, GRID_SIZE);

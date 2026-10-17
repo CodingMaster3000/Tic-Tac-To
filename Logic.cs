@@ -80,83 +80,134 @@ namespace Tic_Tac_To
         }
         public static bool CheckForWinningLines(string[,] grid, int a, int b, int c)
         {
+            int countRow = 0;
+            int countCollum = 0;
+            int countDiagonal = 0;
             bool winningLineFound = false;
-            for (int i = -1; i < 1; i++)
+            for (int i = 0; i < c; i++)
             {
-                if (b + i > 0 && b + i < c)
+                if (grid[0, a] == grid[i,a])
                 {
-                    if (a - 1 >= 0)
-                    {
-                        if (grid[a, b] == grid[a - 1, b + i])
-                        {
-                            winningLineFound = FollowTheLine(grid, a, b, a, b, i);
-                            if (winningLineFound)
-                            {
-                                return true;
-                            }
-                        }
-                    }
-                    if (a + 1 < c)
-                    {
-                        if (grid[a, b] == grid[a + 1, b + i])
-                        {
-                            winningLineFound = FollowTheLine(grid, a, b, a, b, i);
-                            if (winningLineFound)
-                            {
-                                return true;
-                            }
-                        }
-                    }
+                    countRow += 1;
+
+                }
+                if (grid[b, 0] == grid[b, i])
+                {
+                    countCollum += 1;
                 }
             }
-            for (int i = -1; i < 1; i += 2)
-            {
-                if (b + i > 0 && b + i < c)
-                {
-                    if (grid[a, b] == grid[a, b + i])
-                    {
-                        winningLineFound = FollowTheLine(grid, a, b, a, b, i);
-                        if (winningLineFound)
-                        {
-                            return true;
-                        }
-                    }
-                }
-            }
-            if (winningLineFound)
+            if (countRow == c || countCollum == c)
             {
                 return true;
             }
-            else
+            if (a==b)
             {
-                return false;
-            }
-        }
-        public static bool FollowTheLine(string[,] grid, int a, int b, int d, int e, int f)
-        {
-            d--;
-            e += f;
-            while (0 <= d && d <= 2 && 0 <= e && e <= 2)
-            {
-                if (grid[a, b] != grid[d, e])
+                for (int i = 0; i < c; i++)
                 {
-                    return false;
+                    if (grid[0,0] == grid[i,i])
+                    {
+                        countDiagonal += 1;
+                    }
+
                 }
-                d--;
-                e += f;
-            }
-            d = a + 1;
-            e = b - f;
-            while (0 <= d && d <= 2 && 0 <= e && e <= 2)
-            {
-                if (grid[a, b] != grid[d, e])
+                if (countDiagonal == 4)
                 {
-                    return false;
+                    return true;
                 }
-                d++;
-                e -= f;
             }
-            return true;
+            if (a + b == 4)
+            {
+                for (int i = 0; i < c; i++)
+                {
+                    if (grid[0, c] == grid[i, c-i])
+                    {
+                        countDiagonal += 1;
+                    }
+
+                }
+                if (countDiagonal == 4)
+                {
+                    return true;
+                }
+            }
+            return false;
+
+            //    for (int i = -1; i < 1; i++)
+            //    {
+            //        if (b + i > 0 && b + i < c)
+            //        {
+            //            if (a - 1 >= 0)
+            //            {
+            //                if (grid[a, b] == grid[a - 1, b + i])
+            //                {
+            //                    winningLineFound = FollowTheLine(grid, a, b, a, b, i);
+            //                    if (winningLineFound)
+            //                    {
+            //                        return true;
+            //                    }
+            //                }
+            //            }
+            //            if (a + 1 < c)
+            //            {
+            //                if (grid[a, b] == grid[a + 1, b + i])
+            //                {
+            //                    winningLineFound = FollowTheLine(grid, a, b, a, b, i);
+            //                    if (winningLineFound)
+            //                    {
+            //                        return true;
+            //                    }
+            //                }
+            //            }
+            //        }
+            //    }
+            //    for (int i = -1; i < 1; i += 2)
+            //    {
+            //        if (b + i > 0 && b + i < c)
+            //        {
+            //            if (grid[a, b] == grid[a, b + i])
+            //            {
+            //                winningLineFound = FollowTheLine(grid, a, b, a, b, i);
+            //                if (winningLineFound)
+            //                {
+            //                    return true;
+            //                }
+            //            }
+            //        }
+            //    }
+            //    if (winningLineFound)
+            //    {
+            //        return true;
+            //    }
+            //    else
+            //    {
+            //        return false;
+            //    }
+            //}
+            //public static bool FollowTheLine(string[,] grid, int a, int b, int d, int e, int f)
+            //{
+            //    d--;
+            //    e += f;
+            //    while (0 <= d && d <= 2 && 0 <= e && e <= 2)
+            //    {
+            //        if (grid[a, b] != grid[d, e])
+            //        {
+            //            return false;
+            //        }
+            //        d--;
+            //        e += f;
+            //    }
+            //    d = a + 1;
+            //    e = b - f;
+            //    while (0 <= d && d <= 2 && 0 <= e && e <= 2)
+            //    {
+            //        if (grid[a, b] != grid[d, e])
+            //        {
+            //            return false;
+            //        }
+            //        d++;
+            //        e -= f;
+            //    }
+            //    return true;
         }
         public static int[,] AddMissingRowsAndLines(int[,] rowsAndLines, int row, int collum)
         {
