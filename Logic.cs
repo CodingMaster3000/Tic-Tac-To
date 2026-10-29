@@ -86,10 +86,9 @@ namespace Tic_Tac_To
             bool winningLineFound = false;
             for (int i = 0; i < c; i++)
             {
-                if (grid[0, a] == grid[i,a])
+                if (grid[0, a] == grid[i, a])
                 {
                     countRow += 1;
-
                 }
                 if (grid[b, 0] == grid[b, i])
                 {
@@ -100,15 +99,14 @@ namespace Tic_Tac_To
             {
                 return true;
             }
-            if (a==b)
+            if (a == b)
             {
                 for (int i = 0; i < c; i++)
                 {
-                    if (grid[0,0] == grid[i,i])
+                    if (grid[0, 0] == grid[i, i])
                     {
                         countDiagonal += 1;
                     }
-
                 }
                 if (countDiagonal == 4)
                 {
@@ -119,11 +117,10 @@ namespace Tic_Tac_To
             {
                 for (int i = 0; i < c; i++)
                 {
-                    if (grid[0, c-1] == grid[i, c-i-1])
+                    if (grid[0, c - 1] == grid[i, c - i - 1])
                     {
                         countDiagonal += 1;
                     }
-
                 }
                 if (countDiagonal == 4)
                 {
@@ -131,7 +128,6 @@ namespace Tic_Tac_To
                 }
             }
             return false;
-
             //    for (int i = -1; i < 1; i++)
             //    {
             //        if (b + i > 0 && b + i < c)
