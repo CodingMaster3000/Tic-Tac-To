@@ -78,7 +78,7 @@ namespace Tic_Tac_To
                 return false;
             }
         }
-        public static bool CheckForWinningLines(string[,] grid, int a, int b, int c)
+        public static bool CheckForWinningLines(string[,] grid, int b, int a, int c)
         {
             int countRow = 0;
             int countCollum = 0;
