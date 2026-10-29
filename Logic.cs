@@ -119,7 +119,7 @@ namespace Tic_Tac_To
             {
                 for (int i = 0; i < c; i++)
                 {
-                    if (grid[0, c] == grid[i, c-i])
+                    if (grid[0, c-1] == grid[i, c-i-1])
                     {
                         countDiagonal += 1;
                     }
