@@ -108,7 +108,7 @@ namespace Tic_Tac_To
                         countDiagonal += 1;
                     }
                 }
-                if (countDiagonal == 4)
+                if (countDiagonal == c)
                 {
                     return true;
                 }
@@ -122,7 +122,7 @@ namespace Tic_Tac_To
                         countDiagonal += 1;
                     }
                 }
-                if (countDiagonal == 4)
+                if (countDiagonal == c)
                 {
                     return true;
                 }
