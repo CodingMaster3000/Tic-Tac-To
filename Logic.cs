@@ -78,51 +78,51 @@ namespace Tic_Tac_To
                 return false;
             }
         }
-        public static bool CheckForWinningLines(string[,] grid, int b, int a, int c)
+        public static bool CheckForWinningLines(string[,] grid, int row, int collum, int GRID_SIZE)
         {
             int countRow = 0;
             int countCollum = 0;
             int countDiagonal = 0;
             bool winningLineFound = false;
-            for (int i = 0; i < c; i++)
+            for (int i = 0; i < GRID_SIZE; i++)
             {
-                if (grid[0, a] == grid[i, a])
+                if (grid[0, collum] == grid[i, collum])
                 {
                     countRow += 1;
                 }
-                if (grid[b, 0] == grid[b, i])
+                if (grid[row, 0] == grid[row, i])
                 {
                     countCollum += 1;
                 }
             }
-            if (countRow == c || countCollum == c)
+            if (countRow == GRID_SIZE || countCollum == GRID_SIZE)
             {
                 return true;
             }
-            if (a == b)
+            if (collum == row)
             {
-                for (int i = 0; i < c; i++)
+                for (int i = 0; i < GRID_SIZE; i++)
                 {
                     if (grid[0, 0] == grid[i, i])
                     {
                         countDiagonal += 1;
                     }
                 }
-                if (countDiagonal == c)
+                if (countDiagonal == GRID_SIZE)
                 {
                     return true;
                 }
             }
-            if (a + b == 4)
+            if (collum + row == 4)
             {
-                for (int i = 0; i < c; i++)
+                for (int i = 0; i < GRID_SIZE; i++)
                 {
-                    if (grid[0, c - 1] == grid[i, c - i - 1])
+                    if (grid[0, GRID_SIZE - 1] == grid[i, GRID_SIZE - i - 1])
                     {
                         countDiagonal += 1;
                     }
                 }
-                if (countDiagonal == c)
+                if (countDiagonal == GRID_SIZE)
                 {
                     return true;
                 }
